@@ -10,7 +10,6 @@ public class Motorcycle {
  
     private String motorcycleModel = "YZF-R1S"; 
 
-	@Bean
 	public String getMotorcycleName() {
 
 		return motorcycleName;
@@ -26,7 +25,6 @@ public class Motorcycle {
 
 
 
-	@Bean
 	public String getMotorcycleModel() {
 
 		return motorcycleModel;

@@ -4,23 +4,49 @@ import org.springframework.stereotype.Component;
 import org.springframework.context.annotation.*;
 import org.springframework.beans.factory.annotation.*;
 
-@Component
+
 public class Car { 
+
+    private Integer id;
  
-    private String carName = "Subaru"; 
+    private String carName; 
  
-    private String carModel = "WRX concept"; 
+    private String carModel; 
    
-    @Autowired
-    private Motorcycle motorcycle;
+    //private Motorcycle motorcycle;
 
-	public Motorcycle getMotorcycle(){
-		return motorcycle;
+	public Car() {
 	}
 
-	public void setMotorcycle(Motorcycle motorcycle){
-		this.motorcycle = motorcycle;
+
+	public Car(String carName, String carModel, int id) {
+		this.carName = carName;
+		this.carModel = carModel;
+		this.id = id;
+	}	
+
+	//public Motorcycle getMotorcycle(){
+	//	return motorcycle;
+	//}
+
+	//public void setMotorcycle(Motorcycle motorcycle){
+	//	this.motorcycle = motorcycle;
+	//}
+
+
+	public Integer getId() {
+
+		return id;
+
 	}
+
+
+	public void setId(int id) {
+
+		this.id = id;
+
+	}
+
 
 	public String getCarName() {
 
@@ -52,4 +78,8 @@ public class Car {
 
 
  
+	public String toString(){
+		return "Car Name: " + this.carName +" Car Model: " + this.carModel;
+	}
+
 } 

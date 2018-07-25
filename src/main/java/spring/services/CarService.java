@@ -1,5 +1,7 @@
-package spring;
+package spring.services;
 
+import spring.dao.*;
+import spring.dto.*;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,6 +34,10 @@ public class CarService {
     public List<Car> findAll() {
         List<Car> cars = carDao.findAll();
         return cars;
+    }
+
+    public void close(){
+	carDao.close();
     }
 
     public CarDao getCarDao() {

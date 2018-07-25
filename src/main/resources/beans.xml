@@ -52,22 +52,22 @@
     </bean>
 
    <!-- CAR Data Access Object -->
-   <bean id="carDao" class="spring.CarDao">
+   <bean id="carDao" class="spring.dao.CarDao">
    		<property name="sessionFactory" ref="sessionFactory"></property>
    </bean>
 
     <!-- CAR business object(Service) -->
-   <bean id="carService" class="spring.CarService">
+   <bean id="carService" class="spring.services.CarService">
    		<property name="carDao" ref="carDao"/>
    </bean>
 
    <!-- MOTO Data Access Object -->
-   <bean id="motorcycleDao" class="spring.MotorcycleDao">
+   <bean id="motorcycleDao" class="spring.dao.MotorcycleDao">
    		<property name="sessionFactory" ref="sessionFactory"></property>
    </bean>
 
     <!-- MOTO business object(Service) -->
-   <bean id="motorcycleService" class="spring.MotorcycleService">
+   <bean id="motorcycleService" class="spring.services.MotorcycleService">
    		<property name="motorcycleDao" ref="motorcycleDao"/>
    </bean>
 

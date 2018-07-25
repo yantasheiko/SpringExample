@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name="spring.Car" table="car" catalog="springExample">
+    <class name="spring.dto.Car" table="car" catalog="springExample">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
             <generator class="identity" />

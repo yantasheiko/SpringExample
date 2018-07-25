@@ -1,8 +1,9 @@
-package spring;
+package spring.services;
 
 import java.util.List;
 
-import spring.*;
+import spring.dao.*;
+import spring.dto.*;
 
 public class MotorcycleService {
 
@@ -29,6 +30,10 @@ public class MotorcycleService {
     public List<Motorcycle> findAll() {
         List<Motorcycle> motorcycles = motorcycleDao.findAll();
         return motorcycles;
+    }
+
+    public void close(){
+	motorcycleDao.close();
     }
 
     public MotorcycleDao getMotorcycleDao() {

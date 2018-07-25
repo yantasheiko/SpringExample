@@ -1,4 +1,4 @@
-package spring; 
+package spring.dto; 
 
 import org.springframework.stereotype.Component;
 import org.springframework.context.annotation.*;

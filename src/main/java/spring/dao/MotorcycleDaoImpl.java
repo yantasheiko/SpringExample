@@ -1,6 +1,7 @@
-package spring;
+package spring.dao;
 
-import spring.*;
+import spring.dto.*;
+import spring.dao.*;
 import java.util.List;
 import java.sql.*;
 

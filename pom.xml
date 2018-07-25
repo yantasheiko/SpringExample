@@ -13,7 +13,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
-    <exec.mainClass>spring.SpringTest</exec.mainClass>
+    <exec.mainClass>spring.mainclass.SpringTest</exec.mainClass>
   </properties>
 
   <dependencies>
@@ -90,7 +90,7 @@
         <artifactId>exec-maven-plugin</artifactId>
         <version>1.6.0</version>
         <configuration>
-          <mainClass>spring.SpringTest</mainClass>
+          <mainClass>spring.mainclass.SpringTest</mainClass>
           <cleanupDaemonThreads>false</cleanupDaemonThreads>
         </configuration>
       </plugin>

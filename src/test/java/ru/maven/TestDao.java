@@ -3,7 +3,9 @@ package src.test.java.ru.maven;
 import org.testng.*;
 import org.testng.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import spring.*;
+import spring.dto.*;
+import spring.dao.*;
+import spring.services.*;
 import java.util.*;
 import org.springframework.test.context.*;
 import org.springframework.test.context.testng.*;
@@ -17,10 +19,16 @@ public class TestDao extends AbstractTransactionalTestNGSpringContextTests {
 	@Autowired
 	private MotorcycleService motorcycleService;
 
-	@BeforeMethod
+	@BeforeTest
 	public void setUp() throws Exception {
 		carService = new CarService();
 		motorcycleService = new MotorcycleService();
+	}
+
+	@AfterTest
+	public void tearDown() {
+		carService.close();
+		motorcycleService.close();
 	}
 
 	@Test

@@ -1,6 +1,7 @@
-package spring;
+package spring.dao;
 
-import spring.*;
+import spring.dto.*;
+import spring.dao.*;
 
 import java.sql.*;
 import java.util.*;
@@ -10,10 +11,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 
-public class CarDao implements CarDaoImpl {
+public class MotorcycleDao implements MotorcycleDaoImpl {
 
 	private Session currentSession;
 	private static SessionFactory sessionFactory;
@@ -27,28 +26,28 @@ public class CarDao implements CarDaoImpl {
 	}
 
 	public Session getCurrentSession() {
-        	return currentSession;
+       		return currentSession;
 	}
  
 	public void setCurrentSession(Session currentSession) {
         	this.currentSession = currentSession;
 	}
 
-	public Car findById(Integer id) {
+	public Motorcycle findById(Integer id) {
 		currentSession = getSessionFactory().openSession();
-        	Car car = (Car) getCurrentSession().get(Car.class, id);
+        	Motorcycle moto = (Motorcycle) getCurrentSession().get(Motorcycle.class, id);
 		currentSession.close();
-        	return car;
+        	return moto;
     	}
 
-	public List<Car> findAll() {
+	public List<Motorcycle> findAll() {
 		currentSession = getSessionFactory().openSession();
-        	List<Car> cars = (List<Car>) getCurrentSession().createQuery("from Car").list();
+        	List<Motorcycle> motorcycles = (List<Motorcycle>) getCurrentSession().createQuery("from Motorcycle").list();
 		currentSession.close();
-        	return cars;
+        	return motorcycles;
     	}
 
-	public void update(Car entity) {
+	public void update(Motorcycle entity) {
 		currentSession = getSessionFactory().openSession();
 		Transaction currentTransaction = getCurrentSession().beginTransaction();
         	getCurrentSession().update(entity);
@@ -56,12 +55,16 @@ public class CarDao implements CarDaoImpl {
 		currentSession.close();
     	}
 
-	public void delete(Car entity) {
+	public void delete(Motorcycle entity) {
 		currentSession = getSessionFactory().openSession();
 		Transaction currentTransaction = getCurrentSession().beginTransaction();
         	getCurrentSession().delete(entity);
 		currentTransaction.commit();
 		currentSession.close();
     	}
-}
 
+	public void close(){
+		sessionFactory.close();
+	}
+
+}

@@ -1,5 +1,8 @@
-package spring;
+package spring.mainclass;
 
+import spring.dao.*;
+import spring.dto.*;
+import spring.services.*;
 import org.springframework.context.*;
 import org.springframework.context.annotation.*;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -59,6 +62,9 @@ public class SpringTest	{
 	System.out.println("----------------------");
 	System.out.println("Motorcycle at number " + motoDel.getId() + " was deleted from DB");
 
+
+	carService.close();
+	motorcycleService.close();
 	}
 
 }
